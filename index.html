@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="caixinha" class="oculto"></div>
+    <button id="btnCaixa">Abrir caixa</button>
+
+    <script>
+        document.getElementById('btnCaixa').addEventListener("click", () => {
+
+            const sumir = document.getElementById('btnCaixa')
+            sumir.style.display = "none"
+
+            const caixa = document.getElementById('caixinha')
+            caixa.innerHTML = ""
+
+            const titulo = document.createElement("h1")
+            titulo.textContent = "Titulo Tal"
+            caixa.appendChild(titulo)
+
+            const frase = document.createElement("p")
+            frase.textContent = "Este é o parágrafo"
+            caixa.appendChild(frase)
+
+            const btnFechar = document.createElement("button")
+            btnFechar.textContent = "Fechar Caixar"
+            caixa.appendChild(btnFechar)
+
+            caixa.classList.remove('oculto')
+
+            btnFechar.addEventListener("click", () => {
+                caixa.classList.add('oculto')
+                sumir.style.display = "block"
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>
